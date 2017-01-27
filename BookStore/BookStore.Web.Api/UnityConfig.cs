@@ -3,11 +3,13 @@ using BookStore.Core.EventSourcing;
 using BookStore.Core.Messaging;
 using BookStore.Core.Messaging.Handling;
 using BookStore.Core.Processors;
+using BookStore.Core.ReadModels;
 using BookStore.Core.Serialization;
 using BookStore.Domain.CommandHandlers;
 using BookStore.Infrastructure.EventSourcing;
 using BookStore.Infrastructure.Messaging;
 using BookStore.Infrastructure.Processors;
+using BookStore.Infrastructure.ReadModels;
 using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Concurrent;
@@ -54,6 +56,9 @@ namespace BookStore.Web.Api
             // Event sourcing
             container.RegisterType<IEventStore, EventStore>(new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IAggregateRepository<>), typeof(AggregateRepository<>));
+
+            // Read models
+            container.RegisterType(typeof(IDao<>), typeof(ReadModelDao<>));
 
             // Misc
             container.RegisterType<ITextSerializer, JsonTextSerializer>();
