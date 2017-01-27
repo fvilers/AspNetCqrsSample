@@ -4,6 +4,7 @@ using BookStore.Core.Http;
 using BookStore.Core.Http.Filters;
 using BookStore.Core.Messaging;
 using BookStore.Core.ReadModels;
+using BookStore.Domain.Commands;
 using System;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -73,9 +74,16 @@ namespace BookStore.Api.Controllers
 
         [HttpDelete]
         [Route("{id:guid}")]
-        public IHttpActionResult Delete(Guid id)
+        public async Task<IHttpActionResult> Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var command = new DeleteBook
+            {
+                BookId = id
+            };
+
+            await _commandBus.SendAsync(command).ConfigureAwait(false);
+
+            return Accepted();
         }
     }
 }
