@@ -1,4 +1,5 @@
 ﻿using BookStore.Api.Models;
+using BookStore.Core.Messaging;
 using System;
 using System.Web.Http;
 
@@ -7,6 +8,14 @@ namespace BookStore.Api.Controllers
     [RoutePrefix("books")]
     public class BookController : ApiController
     {
+        private readonly ICommandBus _commandBus;
+
+        public BookController(ICommandBus commandBus)
+        {
+            if (commandBus == null) throw new ArgumentNullException(nameof(commandBus));
+            _commandBus = commandBus;
+        }
+
         [HttpPost]
         [Route("")]
         public IHttpActionResult Create(CreateBookModel model)

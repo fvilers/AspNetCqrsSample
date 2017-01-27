@@ -44,7 +44,9 @@
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
     <Compile Include="Messaging\Command.cs" />
+    <Compile Include="Messaging\Envelope.cs" />
     <Compile Include="Messaging\ICommand.cs" />
+    <Compile Include="Messaging\ICommandBus.cs" />
     <Compile Include="Messaging\IMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
