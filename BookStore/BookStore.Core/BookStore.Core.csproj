@@ -51,6 +51,9 @@
     <Compile Include="EventSourcing\IEventSourced.cs" />
     <Compile Include="EventSourcing\IVersionedEvent.cs" />
     <Compile Include="EventSourcing\VersionedEvent.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="IAggregateRepository.cs" />
+    <Compile Include="IAggregateRoot.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="Messaging\Command.cs" />
     <Compile Include="Messaging\Envelope.cs" />

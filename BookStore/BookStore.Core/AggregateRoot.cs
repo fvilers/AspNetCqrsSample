@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BookStore.Core
 {
-    public class AggregateRoot : Entity, IEventSourced
+    public class AggregateRoot : Entity, IAggregateRoot, IEventSourced
     {
         public int Version { get; private set; }
         public IEnumerable<IVersionedEvent> UncommittedEvents => _uncommittedEvents;
