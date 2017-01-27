@@ -19,11 +19,11 @@ namespace BookStore.Api.Models
             return command;
         }
 
-        public static UpdateBook ToCommand(this UpdateBookModel model, Guid bookId)
+        public static SetBookPrice ToCommand(this UpdateBookModel model, Guid bookId)
         {
             if (model == null) throw new ArgumentNullException(nameof(model));
 
-            var command = new UpdateBook
+            var command = new SetBookPrice
             {
                 BookId = bookId,
                 Price = model.Price

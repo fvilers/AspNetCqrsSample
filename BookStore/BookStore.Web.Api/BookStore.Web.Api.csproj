@@ -152,6 +152,10 @@
       <Project>{00908F6C-C472-40E5-B5F1-B7ABCBE0E8AA}</Project>
       <Name>BookStore.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BookStore.Domain\BookStore.Domain.csproj">
+      <Project>{0DD95D99-815D-4BE5-84CD-BC5E64CFE564}</Project>
+      <Name>BookStore.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BookStore.Infrastructure\BookStore.Infrastructure.csproj">
       <Project>{F8F132D7-F74B-497A-AB60-E890A7F62C2C}</Project>
       <Name>BookStore.Infrastructure</Name>
