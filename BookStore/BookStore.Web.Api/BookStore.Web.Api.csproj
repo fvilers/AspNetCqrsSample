@@ -129,6 +129,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
     <Compile Include="App_Start\Startup.WebApi.cs" />
     <Compile Include="App_Start\UnityDependencyResolver.cs" />
     <Compile Include="App_Start\UnityDependencyScope.cs" />
