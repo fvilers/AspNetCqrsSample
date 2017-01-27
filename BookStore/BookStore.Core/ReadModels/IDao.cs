@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 namespace BookStore.Core.ReadModels
 {
     public interface IDao<TReadModel>
+        where TReadModel : IReadModel
     {
         Task<IEnumerable<TReadModel>> FindAsync();
         Task<TReadModel> GetAsync(Guid aggregateId);

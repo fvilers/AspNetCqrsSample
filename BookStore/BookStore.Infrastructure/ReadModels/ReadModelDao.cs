@@ -7,19 +7,20 @@ using System.Threading.Tasks;
 namespace BookStore.Infrastructure.ReadModels
 {
     public class ReadModelDao<TReadModel> : IDao<TReadModel>
+        where TReadModel : IReadModel
     {
-        private readonly IDictionary<Guid, TReadModel> _store = new Dictionary<Guid, TReadModel>();
+        private static readonly IDictionary<Guid, TReadModel> Store = new Dictionary<Guid, TReadModel>();
 
         public Task<IEnumerable<TReadModel>> FindAsync()
         {
-            return Task.FromResult(_store.Values.AsEnumerable());
+            return Task.FromResult(Store.Values.AsEnumerable());
         }
 
         public Task<TReadModel> GetAsync(Guid aggregateId)
         {
             TReadModel value;
 
-            if (!_store.TryGetValue(aggregateId, out value))
+            if (!Store.TryGetValue(aggregateId, out value))
             {
                 value = default(TReadModel);
             }
@@ -29,7 +30,7 @@ namespace BookStore.Infrastructure.ReadModels
 
         public void Add(Guid aggregateId, TReadModel value)
         {
-            _store.Add(aggregateId, value);
+            Store.Add(aggregateId, value);
         }
     }
 }

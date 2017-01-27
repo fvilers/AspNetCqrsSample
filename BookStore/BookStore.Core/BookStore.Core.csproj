@@ -87,6 +87,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadModels\Extensions.cs" />
     <Compile Include="ReadModels\IDao.cs" />
+    <Compile Include="ReadModels\IReadModel.cs" />
+    <Compile Include="ReadModels\ReadModel.cs" />
     <Compile Include="Serialization\Extensions.cs" />
     <Compile Include="Serialization\ITextSerializer.cs" />
     <Compile Include="Serialization\JsonTextSerializer.cs" />
