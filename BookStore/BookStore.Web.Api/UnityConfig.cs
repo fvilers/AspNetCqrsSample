@@ -49,7 +49,7 @@ namespace BookStore.Web.Api
             // Processors
             container.RegisterType<ICommandHandlerRegistry, CommandHandlerRegistry>(new ContainerControlledLifetimeManager());
             container.RegisterType<ICommandExecuter, CommandExecuter>();
-            container.RegisterType<IProcessor, CommandProcessor>();
+            container.RegisterType<IProcessor, CommandProcessor>("CommandProcessor");
 
             // Event sourcing
             container.RegisterType<IEventStore, EventStore>(new ContainerControlledLifetimeManager());
