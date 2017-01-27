@@ -1,6 +1,7 @@
 using BookStore.Core.Messaging;
 using BookStore.Core.Messaging.Handling;
 using BookStore.Core.Processors;
+using BookStore.Core.Serialization;
 using BookStore.Domain.CommandHandlers;
 using BookStore.Infrastructure.Messaging;
 using BookStore.Infrastructure.Processors;
@@ -41,6 +42,9 @@ namespace BookStore.Web.Api
             container.RegisterType<ICommandHandlerRegistry, CommandHandlerRegistry>(new ContainerControlledLifetimeManager());
             container.RegisterType<ICommandExecuter, CommandExecuter>();
             container.RegisterType<IProcessor, CommandProcessor>();
+
+            // Misc
+            container.RegisterType<ITextSerializer, JsonTextSerializer>();
         }
     }
 }
