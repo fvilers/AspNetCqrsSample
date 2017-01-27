@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dependencies;
 
-namespace BookStore.Web.Api
+namespace BookStore.Core.Http.Dependencies
 {
-    internal class UnityDependencyScope : IDependencyScope
+    public class UnityDependencyScope : IDependencyScope
     {
         protected IUnityContainer Container { get; }
 

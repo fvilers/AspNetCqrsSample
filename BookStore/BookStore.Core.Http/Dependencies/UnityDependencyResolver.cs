@@ -1,9 +1,9 @@
 ﻿using Microsoft.Practices.Unity;
 using System.Web.Http.Dependencies;
 
-namespace BookStore.Web.Api
+namespace BookStore.Core.Http.Dependencies
 {
-    internal class UnityDependencyResolver : UnityDependencyScope, IDependencyResolver
+    public class UnityDependencyResolver : UnityDependencyScope, IDependencyResolver
     {
         public UnityDependencyResolver(IUnityContainer container)
             : base(container)

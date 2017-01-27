@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BookStore.Core.Http.Dependencies;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Owin;
 using System;
