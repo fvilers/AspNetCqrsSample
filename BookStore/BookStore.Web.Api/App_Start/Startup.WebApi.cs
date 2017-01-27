@@ -13,7 +13,11 @@ namespace BookStore.Web.Api
             if (app == null) throw new ArgumentNullException(nameof(app));
 
             // Web API configuration and services
-            var configuration = new HttpConfiguration();
+            var configuration = new HttpConfiguration
+            {
+                DependencyResolver = new UnityDependencyResolver(UnityConfig.GetConfiguredContainer())
+            };
+
             configuration.Formatters.JsonFormatter.SerializerSettings.Formatting = Formatting.Indented;
             configuration.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.LocalOnly;
             configuration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
