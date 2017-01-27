@@ -50,6 +50,7 @@
     <Compile Include="Messaging\CommandBus.cs" />
     <Compile Include="Messaging\EventBus.cs" />
     <Compile Include="Processors\CommandProcessor.cs" />
+    <Compile Include="Processors\EventProcessor.cs" />
     <Compile Include="Processors\MessageProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadModels\ReadModelDao.cs" />
