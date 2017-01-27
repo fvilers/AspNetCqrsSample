@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Core", "04. Core", "{FF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Infrastructure", "01. Infrastructure", "{21E487E5-2F73-4967-A5CF-AFC4DE4105AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Api.ReadModels", "BookStore.Api.ReadModels\BookStore.Api.ReadModels.csproj", "{749B9259-6F17-42B2-B5C8-6F256BDCF808}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{AD25D413-CD0D-4C57-B8B4-CFBE1CFCA625}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD25D413-CD0D-4C57-B8B4-CFBE1CFCA625}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD25D413-CD0D-4C57-B8B4-CFBE1CFCA625}.Release|Any CPU.Build.0 = Release|Any CPU
+		{749B9259-6F17-42B2-B5C8-6F256BDCF808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{749B9259-6F17-42B2-B5C8-6F256BDCF808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{749B9259-6F17-42B2-B5C8-6F256BDCF808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{749B9259-6F17-42B2-B5C8-6F256BDCF808}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,5 +72,6 @@ Global
 		{F8F132D7-F74B-497A-AB60-E890A7F62C2C} = {21E487E5-2F73-4967-A5CF-AFC4DE4105AB}
 		{54ED8E97-7167-4A7D-9A2C-761F2182091A} = {2C257EF1-8A15-45C6-9781-0690136C253E}
 		{AD25D413-CD0D-4C57-B8B4-CFBE1CFCA625} = {FF6DE643-9371-4615-B778-F7AF35D4350C}
+		{749B9259-6F17-42B2-B5C8-6F256BDCF808} = {2C257EF1-8A15-45C6-9781-0690136C253E}
 	EndGlobalSection
 EndGlobal
