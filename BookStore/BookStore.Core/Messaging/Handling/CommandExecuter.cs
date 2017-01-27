@@ -22,7 +22,7 @@ namespace BookStore.Core.Messaging.Handling
 
             if (_registry.TryGetHandler(commandType, out handler))
             {
-                await ((ICommandHandler<ICommand>)handler).HandleAsync(command).ConfigureAwait(false);
+                await ((dynamic)handler).HandleAsync((dynamic)command).ConfigureAwait(false);
             }
         }
     }
