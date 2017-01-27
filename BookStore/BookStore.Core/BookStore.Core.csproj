@@ -43,13 +43,18 @@
     <Compile Include="..\AssemblyVersion.cs">
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
+    <Compile Include="AggregateRoot.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="EventSourcing\IEventSourced.cs" />
+    <Compile Include="EventSourcing\IVersionedEvent.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="Messaging\Command.cs" />
     <Compile Include="Messaging\Envelope.cs" />
+    <Compile Include="Messaging\Event.cs" />
     <Compile Include="Messaging\Extensions.cs" />
     <Compile Include="Messaging\ICommand.cs" />
     <Compile Include="Messaging\ICommandBus.cs" />
+    <Compile Include="Messaging\IEvent.cs" />
     <Compile Include="Messaging\IMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
