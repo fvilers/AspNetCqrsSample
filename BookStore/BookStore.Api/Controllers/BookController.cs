@@ -1,4 +1,5 @@
 ﻿using BookStore.Api.Models;
+using BookStore.Core.Http.Filters;
 using BookStore.Core.Messaging;
 using System;
 using System.Web.Http;
@@ -17,6 +18,7 @@ namespace BookStore.Api.Controllers
         }
 
         [HttpPost]
+        [ModelValidation]
         [Route("")]
         public IHttpActionResult Create(CreateBookModel model)
         {

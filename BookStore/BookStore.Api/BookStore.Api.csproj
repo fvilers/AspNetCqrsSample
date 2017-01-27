@@ -66,6 +66,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BookStore.Core.Http\BookStore.Core.Http.csproj">
+      <Project>{AD25D413-CD0D-4C57-B8B4-CFBE1CFCA625}</Project>
+      <Name>BookStore.Core.Http</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BookStore.Core\BookStore.Core.csproj">
       <Project>{00908F6C-C472-40E5-B5F1-B7ABCBE0E8AA}</Project>
       <Name>BookStore.Core</Name>
