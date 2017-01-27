@@ -46,10 +46,15 @@ namespace BookStore.Api.Controllers
         }
 
         [HttpPut]
+        [ModelValidation]
         [Route("{id:guid}")]
-        public IHttpActionResult Update(Guid id, UpdateBookModel model)
+        public async Task<IHttpActionResult> Update(Guid id, UpdateBookModel model)
         {
-            throw new NotImplementedException();
+            var command = model.ToCommand();
+
+            await _commandBus.SendAsync(command);
+
+            return Accepted();
         }
 
         [HttpDelete]

@@ -18,5 +18,17 @@ namespace BookStore.Api.Models
 
             return command;
         }
+
+        public static UpdateBook ToCommand(this UpdateBookModel model)
+        {
+            if (model == null) throw new ArgumentNullException(nameof(model));
+
+            var command = new UpdateBook
+            {
+                Price = model.Price
+            };
+
+            return command;
+        }
     }
 }
