@@ -47,6 +47,7 @@
     <Compile Include="Commands\DeleteBook.cs" />
     <Compile Include="Commands\UpdateBook.cs" />
     <Compile Include="Events\BookCreated.cs" />
+    <Compile Include="Events\BookPriceSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
