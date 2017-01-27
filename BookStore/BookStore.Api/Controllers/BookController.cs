@@ -50,7 +50,7 @@ namespace BookStore.Api.Controllers
         [Route("{id:guid}")]
         public async Task<IHttpActionResult> Update(Guid id, UpdateBookModel model)
         {
-            var command = model.ToCommand();
+            var command = model.ToCommand(id);
 
             await _commandBus.SendAsync(command);
 
