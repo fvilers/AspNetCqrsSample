@@ -1,7 +1,9 @@
 ﻿using BookStore.Api.Models;
+using BookStore.Api.ReadModels;
 using BookStore.Core.Http;
 using BookStore.Core.Http.Filters;
 using BookStore.Core.Messaging;
+using BookStore.Core.ReadModels;
 using System;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -12,11 +14,14 @@ namespace BookStore.Api.Controllers
     public class BookController : ExtendedApiController
     {
         private readonly ICommandBus _commandBus;
+        private readonly IDao<BookReadModel> _dao;
 
-        public BookController(ICommandBus commandBus)
+        public BookController(ICommandBus commandBus, IDao<BookReadModel> dao)
         {
             if (commandBus == null) throw new ArgumentNullException(nameof(commandBus));
+            if (dao == null) throw new ArgumentNullException(nameof(dao));
             _commandBus = commandBus;
+            _dao = dao;
         }
 
         [HttpPost]
@@ -33,16 +38,25 @@ namespace BookStore.Api.Controllers
 
         [HttpGet]
         [Route("")]
-        public IHttpActionResult Find()
+        public async Task<IHttpActionResult> Find()
         {
-            throw new NotImplementedException();
+            var books = await _dao.FindAsync().ConfigureAwait(false);
+
+            return Ok(books);
         }
 
         [HttpGet]
         [Route("{id:guid}")]
-        public IHttpActionResult Get(Guid id)
+        public async Task<IHttpActionResult> Get(Guid id)
         {
-            throw new NotImplementedException();
+            var book = await _dao.GetAsync(id).ConfigureAwait(false);
+
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(book);
         }
 
         [HttpPut]

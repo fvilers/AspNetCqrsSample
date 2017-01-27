@@ -70,6 +70,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BookStore.Api.ReadModels\BookStore.Api.ReadModels.csproj">
+      <Project>{749B9259-6F17-42B2-B5C8-6F256BDCF808}</Project>
+      <Name>BookStore.Api.ReadModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BookStore.Core.Http\BookStore.Core.Http.csproj">
       <Project>{AD25D413-CD0D-4C57-B8B4-CFBE1CFCA625}</Project>
       <Name>BookStore.Core.Http</Name>
