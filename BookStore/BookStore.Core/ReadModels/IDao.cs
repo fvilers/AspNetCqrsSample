@@ -10,5 +10,6 @@ namespace BookStore.Core.ReadModels
         Task<IEnumerable<TReadModel>> FindAsync();
         Task<TReadModel> GetAsync(Guid aggregateId);
         void Add(Guid aggregateId, TReadModel value);
+        void Remove(Guid aggregateId);
     }
 }

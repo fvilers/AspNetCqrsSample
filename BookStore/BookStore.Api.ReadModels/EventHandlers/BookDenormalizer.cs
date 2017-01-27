@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Api.ReadModels.EventHandlers
 {
-    public class BookDenormalizer : IEventHandler<BookCreated>, IEventHandler<BookPriceSet>
+    public class BookDenormalizer : IEventHandler<BookCreated>, IEventHandler<BookPriceSet>, IEventHandler<BookRemoved>
     {
         private readonly IDao<BookReadModel> _dao;
 
@@ -33,6 +33,13 @@ namespace BookStore.Api.ReadModels.EventHandlers
             var book = await _dao.GetOrAddAsync(@event.SourceId).ConfigureAwait(false);
 
             book.Price = @event.Price;
+        }
+
+        public Task HandleAsync(BookRemoved @event)
+        {
+            if (@event == null) throw new ArgumentNullException(nameof(@event));
+
+            return Task.Run(() => _dao.Remove(@event.SourceId));
         }
     }
 }

@@ -32,5 +32,10 @@ namespace BookStore.Infrastructure.ReadModels
         {
             Store.Add(aggregateId, value);
         }
+
+        public void Remove(Guid aggregateId)
+        {
+            Store.Remove(aggregateId);
+        }
     }
 }
