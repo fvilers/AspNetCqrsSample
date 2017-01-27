@@ -54,6 +54,7 @@ namespace BookStore.Web.Api
             container.RegisterType<IProcessor, CommandProcessor>("CommandProcessor");
 
             container.RegisterType<IEventHandlerRegistry, EventHandlerRegistry>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IEventDispatcher, EventDispatcher>();
 
             // Event sourcing
             container.RegisterType<IEventStore, EventStore>(new ContainerControlledLifetimeManager());
