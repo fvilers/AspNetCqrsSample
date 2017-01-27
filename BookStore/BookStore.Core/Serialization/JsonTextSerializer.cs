@@ -20,7 +20,7 @@ namespace BookStore.Core.Serialization
         {
         }
 
-        public JsonTextSerializer(JsonSerializerSettings settings)
+        private JsonTextSerializer(JsonSerializerSettings settings)
             : this(CreateSerializer(settings))
         {
         }
