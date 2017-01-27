@@ -1,9 +1,11 @@
 using BookStore.Core;
+using BookStore.Core.EventSourcing;
 using BookStore.Core.Messaging;
 using BookStore.Core.Messaging.Handling;
 using BookStore.Core.Processors;
 using BookStore.Core.Serialization;
 using BookStore.Domain.CommandHandlers;
+using BookStore.Infrastructure.EventSourcing;
 using BookStore.Infrastructure.Messaging;
 using BookStore.Infrastructure.Processors;
 using Microsoft.Practices.Unity;
@@ -50,6 +52,7 @@ namespace BookStore.Web.Api
             container.RegisterType<IProcessor, CommandProcessor>();
 
             // Event sourcing
+            container.RegisterType<IEventStore, EventStore>(new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IAggregateRepository<>), typeof(AggregateRepository<>));
 
             // Misc
