@@ -1,5 +1,8 @@
 using BookStore.Core.Messaging;
+using BookStore.Core.Messaging.Handling;
+using BookStore.Core.Processors;
 using BookStore.Infrastructure.Messaging;
+using BookStore.Infrastructure.Processors;
 using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Concurrent;
@@ -29,6 +32,11 @@ namespace BookStore.Web.Api
             var commandQueue = new ConcurrentQueue<Envelope<ICommand>>();
             container.RegisterInstance<IProducerConsumerCollection<Envelope<ICommand>>>(commandQueue);
             container.RegisterType<ICommandBus, CommandBus>();
+
+            // Processors
+            container.RegisterType<ICommandHandlerRegistry, CommandHandlerRegistry>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ICommandExecuter, CommandExecuter>();
+            container.RegisterType<IProcessor, CommandProcessor>();
         }
     }
 }
