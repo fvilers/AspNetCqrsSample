@@ -38,6 +38,11 @@ namespace BookStore.Web.Api
             container.RegisterInstance<IProducerConsumerCollection<Envelope<ICommand>>>(commandQueue);
             container.RegisterType<ICommandBus, CommandBus>();
 
+            // Event bus
+            var eventQueue = new ConcurrentQueue<Envelope<IEvent>>();
+            container.RegisterInstance<IProducerConsumerCollection<Envelope<IEvent>>>(eventQueue);
+            container.RegisterType<IEventBus, EventBus>();
+
             // Processors
             container.RegisterType<ICommandHandlerRegistry, CommandHandlerRegistry>(new ContainerControlledLifetimeManager());
             container.RegisterType<ICommandExecuter, CommandExecuter>();
