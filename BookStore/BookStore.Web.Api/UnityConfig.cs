@@ -1,5 +1,8 @@
+using BookStore.Core.Messaging;
+using BookStore.Infrastructure.Messaging;
 using Microsoft.Practices.Unity;
 using System;
+using System.Collections.Concurrent;
 
 namespace BookStore.Web.Api
 {
@@ -22,7 +25,10 @@ namespace BookStore.Web.Api
             // NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
             // container.LoadConfiguration();
 
-            // TODO
+            // Command bus
+            var commandQueue = new ConcurrentQueue<Envelope<ICommand>>();
+            container.RegisterInstance<IProducerConsumerCollection<Envelope<ICommand>>>(commandQueue);
+            container.RegisterType<ICommandBus, CommandBus>();
         }
     }
 }
