@@ -49,10 +49,11 @@
     <Compile Include="Book.cs" />
     <Compile Include="CommandHandlers\BookCommandHandler.cs" />
     <Compile Include="Commands\CreateBook.cs" />
-    <Compile Include="Commands\DeleteBook.cs" />
+    <Compile Include="Commands\RemoveBook.cs" />
     <Compile Include="Commands\SetBookPrice.cs" />
     <Compile Include="Events\BookCreated.cs" />
     <Compile Include="Events\BookPriceSet.cs" />
+    <Compile Include="Events\BookRemoved.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecialCases\BookNotFound.cs" />
   </ItemGroup>

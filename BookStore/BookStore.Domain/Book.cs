@@ -11,6 +11,7 @@ namespace BookStore.Domain
         public string Title { get; private set; }
         public string Author { get; private set; }
         public decimal Price { get; private set; }
+        public bool IsRemoved { get; private set; }
 
         public Book(string title, string author)
             : base(Guid.NewGuid())
@@ -44,11 +45,23 @@ namespace BookStore.Domain
             }
         }
 
+        public void Remove()
+        {
+            Raise(new BookRemoved());
+        }
+
         protected Book(Guid id)
             : base(id)
         {
             Handle<BookCreated>(OnBookCreated);
             Handle<BookPriceSet>(OnBookPriceSet);
+            Handle<BookRemoved>(OnBookRemoved);
+        }
+
+        private void OnBookRemoved(BookRemoved @event)
+        {
+            if (@event == null) throw new ArgumentNullException(nameof(@event));
+            IsRemoved = true;
         }
 
         private void OnBookPriceSet(BookPriceSet @event)

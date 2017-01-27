@@ -3,7 +3,7 @@ using System;
 
 namespace BookStore.Domain.Commands
 {
-    public class DeleteBook : Command
+    public class RemoveBook : Command
     {
         public Guid BookId { get; set; }
     }

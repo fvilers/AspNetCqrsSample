@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Domain.CommandHandlers
 {
-    public class BookCommandHandler : ICommandHandler<CreateBook>, ICommandHandler<SetBookPrice>
+    public class BookCommandHandler : ICommandHandler<CreateBook>, ICommandHandler<SetBookPrice>, ICommandHandler<RemoveBook>
     {
         private readonly IAggregateRepository<Book> _repository;
 
@@ -39,6 +39,21 @@ namespace BookStore.Domain.CommandHandlers
             }
 
             book.SetPrice(command.Price);
+            await _repository.StoreAsync(book, command.Id).ConfigureAwait(false);
+        }
+
+        public async Task HandleAsync(RemoveBook command)
+        {
+            if (command == null) throw new ArgumentNullException(nameof(command));
+
+            var book = await _repository.GetAsync(command.BookId).ConfigureAwait(false);
+
+            if (book is BookNotFound)
+            {
+                return;
+            }
+
+            book.Remove();
             await _repository.StoreAsync(book, command.Id).ConfigureAwait(false);
         }
     }

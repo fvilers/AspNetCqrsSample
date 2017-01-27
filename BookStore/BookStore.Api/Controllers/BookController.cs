@@ -76,7 +76,7 @@ namespace BookStore.Api.Controllers
         [Route("{id:guid}")]
         public async Task<IHttpActionResult> Delete(Guid id)
         {
-            var command = new DeleteBook
+            var command = new RemoveBook
             {
                 BookId = id
             };
