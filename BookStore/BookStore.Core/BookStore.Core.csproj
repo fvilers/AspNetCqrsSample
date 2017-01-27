@@ -56,6 +56,9 @@
     <Compile Include="Messaging\Envelope.cs" />
     <Compile Include="Messaging\Event.cs" />
     <Compile Include="Messaging\Extensions.cs" />
+    <Compile Include="Messaging\Handling\ICommandHandler.cs" />
+    <Compile Include="Messaging\Handling\ICommandHandlerRegistry.cs" />
+    <Compile Include="Messaging\Handling\IRegistry.cs" />
     <Compile Include="Messaging\ICommand.cs" />
     <Compile Include="Messaging\ICommandBus.cs" />
     <Compile Include="Messaging\IEvent.cs" />
