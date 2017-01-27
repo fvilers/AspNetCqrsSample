@@ -21,7 +21,7 @@ namespace BookStore.Infrastructure.Processors
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            return Task.Factory.StartNew(async () => await StartPollingAsync(cancellationToken), cancellationToken, TaskCreationOptions.LongRunning, TaskScheduler.Current);
+            return Task.Factory.StartNew(async () => await StartPollingAsync(cancellationToken).ConfigureAwait(false), cancellationToken, TaskCreationOptions.LongRunning, TaskScheduler.Current);
         }
 
         protected abstract Task ProcessMessageAsync(T message, string correlationId);
@@ -38,7 +38,7 @@ namespace BookStore.Infrastructure.Processors
                 {
                     try
                     {
-                        await ProcessMessageAsync(envelope.Body, envelope.CorrelationId);
+                        await ProcessMessageAsync(envelope.Body, envelope.CorrelationId).ConfigureAwait(false);
                     }
                     catch (Exception)
                     {
@@ -46,7 +46,7 @@ namespace BookStore.Infrastructure.Processors
                     }
                 }
 
-                await Task.Delay(pollDelay, cancellationToken);
+                await Task.Delay(pollDelay, cancellationToken).ConfigureAwait(false);
             }
         }
     }

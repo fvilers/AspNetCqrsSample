@@ -34,7 +34,7 @@ namespace BookStore.Infrastructure.Messaging
 
             foreach (var envelope in envelopes)
             {
-                await SendAsync(envelope);
+                await SendAsync(envelope).ConfigureAwait(false);
             }
         }
     }

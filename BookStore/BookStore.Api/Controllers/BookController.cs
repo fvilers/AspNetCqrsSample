@@ -26,7 +26,7 @@ namespace BookStore.Api.Controllers
         {
             var command = model.ToCommand();
 
-            await _commandBus.SendAsync(command);
+            await _commandBus.SendAsync(command).ConfigureAwait(false);
 
             return Accepted();
         }
@@ -52,7 +52,7 @@ namespace BookStore.Api.Controllers
         {
             var command = model.ToCommand(id);
 
-            await _commandBus.SendAsync(command);
+            await _commandBus.SendAsync(command).ConfigureAwait(false);
 
             return Accepted();
         }
