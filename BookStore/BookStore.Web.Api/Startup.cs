@@ -21,12 +21,21 @@ namespace BookStore.Web.Api
 
             var container = UnityConfig.GetConfiguredContainer();
             var commandHandlerRegistry = container.Resolve<ICommandHandlerRegistry>();
+            var eventHandlerRegistry = container.Resolve<IEventHandlerRegistry>();
 
             if (commandHandlerRegistry != null)
             {
                 foreach (var handler in container.ResolveAll<ICommandHandler>())
                 {
                     commandHandlerRegistry.Register(handler);
+                }
+            }
+
+            if (eventHandlerRegistry != null)
+            {
+                foreach (var handler in container.ResolveAll<IEventHandler>())
+                {
+                    eventHandlerRegistry.Register(handler);
                 }
             }
 

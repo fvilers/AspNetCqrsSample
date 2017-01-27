@@ -1,3 +1,4 @@
+using BookStore.Api.ReadModels.EventHandlers;
 using BookStore.Core;
 using BookStore.Core.EventSourcing;
 using BookStore.Core.Messaging;
@@ -37,6 +38,9 @@ namespace BookStore.Web.Api
 
             // Command handlers
             container.RegisterType<ICommandHandler, BookCommandHandler>("BookCommandHandler");
+
+            // Event handlers
+            container.RegisterType<IEventHandler, BookDenormalizer>("BookDenormalizer");
 
             // Command bus
             var commandQueue = new ConcurrentQueue<Envelope<ICommand>>();

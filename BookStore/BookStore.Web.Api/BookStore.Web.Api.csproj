@@ -140,6 +140,10 @@
     <Compile Include="UnityConfig.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BookStore.Api.ReadModels\BookStore.Api.ReadModels.csproj">
+      <Project>{749B9259-6F17-42B2-B5C8-6F256BDCF808}</Project>
+      <Name>BookStore.Api.ReadModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BookStore.Api\BookStore.Api.csproj">
       <Project>{54ed8e97-7167-4a7d-9a2c-761f2182091a}</Project>
       <Name>BookStore.Api</Name>
