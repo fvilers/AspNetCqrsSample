@@ -22,6 +22,7 @@ namespace BookStore.Domain.CommandHandlers
             if (command == null) throw new ArgumentNullException(nameof(command));
 
             var book = new Book(command.Title, command.Author);
+            book.SetPrice(command.Price);
 
             return _repository.StoreAsync(book, command.Id);
         }
