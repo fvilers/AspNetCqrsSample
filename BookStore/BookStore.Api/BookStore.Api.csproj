@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Models\CreateBookModel.cs" />
+    <Compile Include="Models\Extensions.cs" />
     <Compile Include="Models\UpdateBookModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,6 +74,10 @@
     <ProjectReference Include="..\BookStore.Core\BookStore.Core.csproj">
       <Project>{00908F6C-C472-40E5-B5F1-B7ABCBE0E8AA}</Project>
       <Name>BookStore.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookStore.Domain\BookStore.Domain.csproj">
+      <Project>{0DD95D99-815D-4BE5-84CD-BC5E64CFE564}</Project>
+      <Name>BookStore.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

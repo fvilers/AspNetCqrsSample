@@ -1,13 +1,15 @@
 ﻿using BookStore.Api.Models;
+using BookStore.Core.Http;
 using BookStore.Core.Http.Filters;
 using BookStore.Core.Messaging;
 using System;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace BookStore.Api.Controllers
 {
     [RoutePrefix("books")]
-    public class BookController : ApiController
+    public class BookController : ExtendedApiController
     {
         private readonly ICommandBus _commandBus;
 
@@ -20,9 +22,13 @@ namespace BookStore.Api.Controllers
         [HttpPost]
         [ModelValidation]
         [Route("")]
-        public IHttpActionResult Create(CreateBookModel model)
+        public async Task<IHttpActionResult> Create(CreateBookModel model)
         {
-            throw new NotImplementedException();
+            var command = model.ToCommand();
+
+            await _commandBus.SendAsync(command);
+
+            return Accepted();
         }
 
         [HttpGet]
