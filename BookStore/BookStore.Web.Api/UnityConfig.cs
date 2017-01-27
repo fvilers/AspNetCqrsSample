@@ -1,3 +1,4 @@
+using BookStore.Core;
 using BookStore.Core.Messaging;
 using BookStore.Core.Messaging.Handling;
 using BookStore.Core.Processors;
@@ -47,6 +48,9 @@ namespace BookStore.Web.Api
             container.RegisterType<ICommandHandlerRegistry, CommandHandlerRegistry>(new ContainerControlledLifetimeManager());
             container.RegisterType<ICommandExecuter, CommandExecuter>();
             container.RegisterType<IProcessor, CommandProcessor>();
+
+            // Event sourcing
+            container.RegisterType(typeof(IAggregateRepository<>), typeof(AggregateRepository<>));
 
             // Misc
             container.RegisterType<ITextSerializer, JsonTextSerializer>();

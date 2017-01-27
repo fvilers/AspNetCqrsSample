@@ -3,10 +3,10 @@ using System.Threading.Tasks;
 
 namespace BookStore.Core
 {
-    public interface IAggregateRepository<TAggregate>
-        where TAggregate : IAggregateRoot
+    public interface IAggregateRepository<TAggregateRoot>
+        where TAggregateRoot : IAggregateRoot
     {
-        Task<TAggregate> GetAsync(Guid aggregateId);
-        Task StoreAsync(TAggregate aggregate, string correlationId = null);
+        Task<TAggregateRoot> GetAsync(Guid aggregateId);
+        Task StoreAsync(TAggregateRoot aggregate, string correlationId = null);
     }
 }

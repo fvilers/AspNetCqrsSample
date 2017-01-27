@@ -50,6 +50,7 @@
     <Compile Include="..\AssemblyVersion.cs">
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
+    <Compile Include="AggregateRepository.cs" />
     <Compile Include="AggregateRoot.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="EventSourcing\IEventSourced.cs" />
